@@ -13,10 +13,12 @@ export default {
     }
   },
   mounted() {
-    this.$http.get('https://randomuser.me/api/')
+    console.log(import.meta.env.VITE_TEXT);
+    const url = import.meta.env.VITE_PATH;
+    this.$http.get(url)
       .then(res => {
         this.data = res.data.results[0]
-        // console.log(this.data)
+        console.log(this.data)
       })
   }
 }
